@@ -3,10 +3,11 @@
 ## Expand Rows When Click on Section Header
 
 - Implemented by adding a property `expanded` in `Color.h`. 
-But this isn't the ideal way for expanded is not a character managed by Color.
+But this isn't the ideal way for `expanded` is not a character managed by `Color`.
 Better to have another dataSource array in `PaletteViewController`
 
-- Fix constraint warning by changing priority of label in sectionHeaderView to 999
+- Fix constraint warnings by changing priority of label in `sectionHeaderView` to 999
+
 ![alt tag](https://github.com/naverdant/TableViewWithCustomSectionHeaderView/blob/master/constraintBug.png)
 
 
