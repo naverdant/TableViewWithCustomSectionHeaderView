@@ -1,4 +1,5 @@
 # TableViewWithCustomSectionHeaderView
+A demo with both customized tableView header and section header.
 
 ## Expand Rows When Click on Section Header
 
