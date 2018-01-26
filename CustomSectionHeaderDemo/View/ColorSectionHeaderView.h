@@ -10,5 +10,6 @@
 
 @interface ColorSectionHeaderView : UITableViewHeaderFooterView
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *expandButton;
 
 @end

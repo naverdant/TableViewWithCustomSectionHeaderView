@@ -24,13 +24,23 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ColorSectionHeaderView" bundle:nil] forHeaderFooterViewReuseIdentifier:@"sectionHeader"];
 }
 
+#pragma mark - Action
+- (void)expandOrHide:(UIButton *)sender {
+    Color *selectedColor = self.colors[sender.tag];
+    selectedColor.expanded = !selectedColor.expanded;
+    NSMutableIndexSet *indexSet = [[NSMutableIndexSet alloc] init];
+    [indexSet addIndex:sender.tag];
+    [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+}
+
 #pragma mark - UITableViewDelegate, UITableViewDataSource
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     ColorSectionHeaderView *sectionHeaderView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"sectionHeader"];
-    sectionHeaderView.frame = CGRectMake(0, 0, tableView.bounds.size.width, 50);
+    
     Color *color = self.colors[section];
     sectionHeaderView.titleLabel.text = color.name;
-    sectionHeaderView.backgroundColor = [UIColor blackColor];
+    sectionHeaderView.expandButton.tag = section;
+    [sectionHeaderView.expandButton addTarget:self action:@selector(expandOrHide:) forControlEvents:UIControlEventTouchDown];
     return sectionHeaderView;
 }
 
@@ -52,6 +62,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     Color *color = self.colors[section];
+    if(!color.expanded) {
+        return 0;
+    }
     return color.subColors.count;
 }
 

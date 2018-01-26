@@ -16,6 +16,7 @@
     if(self){
         self.name = name;
         self.subColors = subColors;
+        self.expanded = YES;
     }
     return self;
 }

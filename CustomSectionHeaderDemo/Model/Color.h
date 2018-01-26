@@ -12,6 +12,7 @@
 @interface Color : NSObject
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSArray *subColors;
+@property (nonatomic) BOOL expanded;
 
 - (instancetype)initWithName:(NSString *)name andSubColors:(NSArray <SubColor *> *)subColors;
 + (NSArray <Color *> *)allColors;
