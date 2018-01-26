@@ -2,7 +2,7 @@
 
 ## Expand Rows When Click on Section Header
 
-- Implemented by adding a property `expanded` in Color. 
+- Implemented by adding a property `expanded` in `Color.h`. 
 But this isn't the ideal way for expanded is not a character managed by Color.
 Better to have another dataSource array in `PaletteViewController`
 
